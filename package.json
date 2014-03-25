@@ -1,0 +1,18 @@
+{
+  "name": "dxSlides",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "install": "grunt install"
+  },
+  "author": "",
+  "devDependencies": {
+    "bower": "git+https://github.com/devex-web-frontend/bower.git#v1.2.7-dx.0.0.1",
+    "grunt": "~0.4.2",
+    "grunt-contrib-stylus": "~0.12.0",
+    "assemble": "~0.4.35",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3",
+	"grunt-interactive-shell": "git://github.com/devex-web-frontend/grunt-interactive-shell.git"
+  }
+}

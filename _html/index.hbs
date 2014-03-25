@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>{{title}}</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Russo+One&subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="lib/revealjs/css/reveal.min.css">
+	<link rel="stylesheet" href="inc/css/main.css">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/highlightjs/styles/github.css">
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+		document.write( '<link rel="stylesheet" href="lib/revealjs/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/revealjs/lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+		{{> slides }}
+	</div>
+</div>
+
+<div class="slideNumber" style="display: none">0</div>
+
+<script src="lib/revealjs/lib/js/head.min.js"></script>
+<script src="lib/revealjs/js/reveal.min.js"></script>
+{{> script-initialize }}
+</body>
+</html>

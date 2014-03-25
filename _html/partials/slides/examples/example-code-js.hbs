@@ -1,0 +1,21 @@
+<section class="slide">
+	<h2>JavaScript код</h2>
+	<br/>
+	<pre><code class="javascript">
+var map = {},
+counts = {}; // <-- usage counter
+
+function Sound(id) {
+  if (map[id]) {
+    ++counts[id];
+    return map[id];
+  }
+
+  map[id] = this;
+
+  counts[id] = 1;
+  this.initialize();
+
+}
+	</code></pre>
+</section>

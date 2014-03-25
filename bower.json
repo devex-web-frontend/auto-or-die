@@ -1,0 +1,12 @@
+{
+  "name": "dxSlides",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "revealjs": "https://github.com/hakimel/reveal.js/archive/2.6.1.tar.gz",
+    "stylus-utilus": "FrontEnd/stylus-utilus#1.1.0",
+    "assemble-partials": "FrontEnd/assemble-partials#1.1.0",
+    "assemble-helpers": "FrontEnd/assemble-helpers#1.0.2",
+    "highlightjs": "7.5.0"
+  }
+}

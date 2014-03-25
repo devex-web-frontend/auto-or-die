@@ -1,0 +1,4 @@
+{
+	"directory": "lib",
+	"shorthand_resolver": "svn+https://svn.in.devexperts.com/webteam/{{owner}}/{{package}}/"
+}
