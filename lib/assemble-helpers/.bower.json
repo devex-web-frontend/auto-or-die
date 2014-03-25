@@ -1,0 +1,15 @@
+{
+  "name": "assemble-helpers",
+  "version": "1.0.2",
+  "private": true,
+  "ignore": [
+    ".*",
+    "test/**",
+    "Gruntfile.js",
+    "bower.json",
+    "package.json"
+  ],
+  "_source": "https://svn.in.devexperts.com/webteam/FrontEnd/assemble-helpers",
+  "_target": "1.0.2",
+  "_originalSource": "FrontEnd/assemble-helpers"
+}

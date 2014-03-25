@@ -1,0 +1,14 @@
+{{defineRandomId this}}
+
+<div class="control control-toggleButtons {{modifiers this 'control'}} {{#unless label}} control-noLabel {{/unless}}
+		{{#if disabled}} control-disabled {{/if}}">
+	{{#nolinebreaks}}
+		{{> control--label}}
+		<span class="control--wrap">
+			{{#each buttons}}
+				{{> button.button this}}
+			{{/each}}
+			{{> control--postfix}}
+		</span>
+	{{/nolinebreaks}}
+</div>

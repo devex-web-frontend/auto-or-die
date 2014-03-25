@@ -1,0 +1,49 @@
+/*
+ * Position-mixins with ability to specify any number of dimensions
+ * Based on Nib positions mixins
+ */
+-position($type, $args) {
+	position: unquote($type);
+
+	for $arg, $i in $args {
+		$nextArg = $args[$i + 1];
+
+		if (!($arg is a 'unit') && $arg in (top bottom left right z-index z)) {
+			if ($arg == z) {
+				$arg = z-index;
+			}
+
+			{$arg}: ($nextArg is a 'unit' || $nextArg == auto) ? $nextArg : 0;
+		}
+	}
+}
+
+/*
+ * Usage:
+ * fixed: top left;
+ * fixed: top 10px left 10px bottom 10px right;
+ * fixed: top 10px left z 1;
+ */
+fixed() {
+	-position('fixed', arguments);
+}
+
+/*
+ * Usage:
+ * absolute: top;
+ * absolute: top 10px left 10px right;
+ * absolute: top 10px left 10px z-index 100;
+ */
+absolute() {
+	-position('absolute', arguments);
+}
+
+/*
+ * Usage:
+ * relative: top 10px left 5px;
+ * relative: bottom 7px;
+ * relative: bottom 7px z -1;
+ */
+relative() {
+	-position('relative', arguments);
+}

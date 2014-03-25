@@ -1,0 +1,14 @@
+{{defineRandomId this}}
+
+<div class="control control-selectBox {{modifiers this 'control'}} {{#unless label}} control-noLabel {{/unless}}
+		{{#if disabled}} control-disabled {{/if}}">
+	{{#nolinebreaks}}
+		{{> control--label}}
+		<span class="control--wrap">
+			<select {{#if disabled}} disabled {{/if}} id="{{randomId}}" class="{{className}}">
+				{{> _select_content}}
+			</select>
+			{{> control--postfix}}
+		</span>
+	{{/nolinebreaks}}
+</div>

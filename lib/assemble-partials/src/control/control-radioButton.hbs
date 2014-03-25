@@ -1,0 +1,14 @@
+{{defineRandomId this}}
+
+<div class="control control-radioButton {{modifiers this 'control'}} {{#unless label}} control-noLabel {{/unless}}
+		{{#if disabled}} control-disabled {{/if}}">
+	{{#nolinebreaks}}
+		<span class="radioButton">
+			<input type="checkbox" {{#if checked}} checked {{/if}}
+					{{#if disabled}} disabled {{/if}} id="{{randomId}}">
+			<span class="control--label radioButton--label">
+				<label for="{{randomId}}">{{{label}}}</label>
+			</span>
+		</span>
+	{{/nolinebreaks}}
+</div>

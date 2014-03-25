@@ -1,0 +1,14 @@
+{{defineRandomId this}}
+
+<div class="control control-numericStepper {{modifiers this 'control'}} {{#unless label}} control-noLabel {{/unless}}
+		{{#if disabled}} control-disabled {{/if}}">
+	{{#nolinebreaks}}
+		{{> control--label}}
+		<span class="control--wrap">
+			<input data-numericStepper type="number" value="{{val}}"
+					min="{{min}}" max="{{max}}" step="{{step}}" data-precision="{{precision}}"
+					{{#if disabled}} disabled {{/if}} id="{{randomId}}" class="{{className}}">
+			{{> control--postfix}}
+		</span>
+	{{/nolinebreaks}}
+</div>
