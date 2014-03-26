@@ -3,7 +3,9 @@
 ?Нужноли здесь расказывать про структуру наших проектов? про вайтлеблинг?
 
 Чтобы писать поддерживаемый код, организация всех файлов проекта должна быть логична, все файлы должны быть "чистыми" и разложены по своим местам. Это отлично понимают бекенд разработчики, но почему-то очень редко фронтенд разработчики.
-Вот например цитата David Heinemeier Hansson (автор популярного фреймфорка RoR) из его [выступления](http://www.rubyinside.com/dhh-keynote-streaming-live-from-railsconf-2011-right-here-right-now-4769.html) на RailsConf 2011 ""
+Вот например цитата David Heinemeier Hansson (автор популярного фреймфорка RoR) из его [выступления](http://www.rubyinside.com/dhh-keynote-streaming-live-from-railsconf-2011-right-here-right-now-4769.html) на RailsConf 2011:
+
+> I think empty folders and empty files are two of the pivotal innovations in Rails that have encouraged us to write clean applications since the framework appeared
 
 
 Как мы упоминали ранее для написания сложной и поддерживаемой верстки, необходимо следовать различным соглашениям, которые зачастую требуют выполнения довольно большого количества рутинных операций, которые с большой долей вероятности будут отнимать много времени, сбивать с мысле и в конце концов просто бесить.
