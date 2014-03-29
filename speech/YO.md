@@ -35,6 +35,7 @@ styls
 ```
 
 Чтобы завети новый блок:
+
 1. Завести в папке `workset` файл `index.styl` для регистрации необходимых для файлов стилей
 2. Завести в папке `workset` файл именем блока (`someAwesomeBlock.styl`)
 3. Зарегистрировать в `workset/someAwesomeBlock/index.styl` файл блока
