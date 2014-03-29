@@ -45,5 +45,11 @@ styls
 7. Толкнуть все созданные файлы в VCS
 
 
+`$ > yo dx s someAwesomeBlock.styl`
+
+`$ > yo dx a someAwesomeBlock.styl`
+
+`$ > yo dx e someAwesomeBlock.styl`
+
 
 
