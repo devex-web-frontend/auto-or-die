@@ -1,4 +1,14 @@
 <section class="slide slide-justify">
 	<h3>Циклы</h3>
-	Код columns
+	<pre><code>.columns {
+  &--column {
+    for $colsTotal in $columnsAvailable {
+      for $col in (1...$colsTotal) {
+        &-{$col}_{$colsTotal} {
+          width: $col * (100% / $colsTotal);
+        }
+      }
+    }
+  }
+}</code></pre>
 </section>

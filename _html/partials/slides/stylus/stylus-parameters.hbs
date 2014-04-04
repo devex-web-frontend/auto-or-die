@@ -1,4 +1,19 @@
 <section class="slide slide-justify">
 	<h3>Параметры</h3>
-	Код columns + параметры
+	<pre><code>$columnsAvailable ?= (2 3 4 5 6 8 10 12 20);
+$columnsGap ?= 20px;
+
+.columns {
+  &--column {
+    padding-left: $columnsGap; 
+    
+    for $colsTotal in $columnsAvailable {
+      for $col in (1...$colsTotal) {
+        &-{$col}_{$colsTotal} {
+          width: $col * (100% / $colsTotal);
+        }
+      }
+    }
+  }
+}</code></pre>
 </section>
