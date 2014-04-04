@@ -1,40 +1,28 @@
 .reveal {
 	.slide-start {
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6{
-			text-align: left;
-		}
-
 		img {
 			margin-top: 100px;
 			border: none;
 			float: left;
 		}
 
-		.speakers {
-			display: inline-block;
-			margin-top: 100px;
-			height: 182px;
-			vertical-align: bottom;
-			text-align: right;
-			list-style: none;
-			float: right;
-			line-height: 1.2em;
+
+		.conf {
+			float: left;
+			text-align: left;
 		}
 
-		.speaker {
-			&--name {
-				display: block;
-				fint-size: 30px;
-			}
+		.speakers {
+			float: right;
 
-			&--mail {
-				display: block;
-				font-size: 20px
+			&--list {
+				text-align: right;
+				list-style: none;
+				line-height: 1.2;
+
+				li::before {
+					display: none;
+				}
 			}
 		}
 	}
