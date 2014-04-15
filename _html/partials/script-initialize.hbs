@@ -33,4 +33,16 @@
 		slNumber.textContent = event.indexh;
 	} );
 
+    Reveal.addEventListener('fragmentshown', function(e) {
+        var whatToReuseHeader;
+
+        console.log(e.fragment.id, e);
+        if (e.fragment.id === 'whatToTest') {
+
+            whatToReuseHeader = document.getElementById('whatToReuse');
+            console.log(whatToReuseHeader);
+            whatToReuseHeader.style.textDecoration = 'line-through';
+        }
+    });
+
 </script>
