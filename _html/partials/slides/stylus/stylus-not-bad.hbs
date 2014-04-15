@@ -1,13 +1,14 @@
 <section class="slide slide-justify">
-	<h3>Циклы</h3>
+	<h3>Уже неплохо</h3>
 	<pre><code class="scss">.control {
   display: inline-block;
 
   input {
-    for $type in (text password email number) {
-      &[type={$type}] {
-        box-sizing: border-box;
-      }
+    &[type=text],
+    &[type=password],
+    &[type=email],
+    &[type=number] {
+      box-sizing: border-box;
     }
   }
 }</code></pre>
