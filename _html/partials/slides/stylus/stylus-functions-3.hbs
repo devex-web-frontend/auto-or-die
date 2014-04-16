@@ -1,4 +1,15 @@
-<section class="slide slide-justify">
+<section class="slide">
 	<h3>Функции: image-size</h3>
+	<div>
+		<img src="inc/img/stylus/image-size.png">
+	</div>
 
+	<pre class="fragment"><code class="scss">.logo {
+  $img = img/logo-stylus.png;
+  $size = image-size($img);
+
+  width: $size[0];
+  height: $size[1];
+  background: $img;
+}</code></pre>
 </section>
