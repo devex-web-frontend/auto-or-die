@@ -66,6 +66,33 @@
 			visibility: hidden;
 		}
 	}
+
+	blockquote {
+		text-align: left;
+		
+		strong {
+			color: $backgroundColor;
+		}
+
+		.citeAuthor {
+			display: block;
+			text-align: right;
+			font-size: .5em;
+		}
+	}
+
+	.xlarge {
+		transform: scale(2);
+	}
+
+	.fragment.visible + br + .xlarge {
+		opacity: .2;
+	}
+
+	.no-scale {
+		position: relative;
+		z-index: 2;
+	}
 }
 .slideNumber {
 	font-family: $mainFont;
@@ -81,5 +108,7 @@
 .reveal .progress span {
 	background: rgba(#fff, .5);
 }
+
+
 
 
