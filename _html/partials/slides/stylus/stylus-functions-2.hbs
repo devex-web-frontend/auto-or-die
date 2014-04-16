@@ -1,4 +1,17 @@
-<section class="slide slide-justify">
+<section class="slide">
 	<h3>Функции: работа с цветом</h3>
+	<div>
+		<img src="inc/img/stylus/color-fns.png">
+	</div>
+	<pre class="fragment"><code class="scss">.button {
+  background: #636363;
 
+  &:hover {
+    background: lighten(@background, 10%);
+  }
+
+  &:active {
+    background: darken(@background, 10%);
+  }
+}</code></pre>
 </section>
