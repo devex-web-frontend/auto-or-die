@@ -6,7 +6,7 @@
 
 ### ☠ [HTML](html.md) ☠
 
-### ☠ [CSS](stylus.md) ☠
+### ☠ [CSS](css.md) ☠
 
 ### ☠ [Организация кода](YO.md) ☠
 
