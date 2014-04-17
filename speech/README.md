@@ -4,7 +4,7 @@
 
 ## Основная часть
 
-### ☠ [HTML](assemble.md) ☠
+### ☠ [HTML](html.md) ☠
 
 ### ☠ [CSS](stylus.md) ☠
 
