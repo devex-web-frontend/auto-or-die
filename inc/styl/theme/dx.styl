@@ -82,16 +82,30 @@
 	}
 
 	.xlarge {
-		transform: scale(2);
+		position: absolute;
+		top: 50%;
+		left: 50%
+		transform: translate(-50%, -50%) scale(1.5);
 	}
 
-	.fragment.visible + br + .xlarge {
-		opacity: .2;
+	.fragment.visible + .xlarge {
+		opacity: .1;
 	}
 
 	.no-scale {
 		position: relative;
 		z-index: 2;
+		margin: -5% 0 0 0;
+
+		&:nth-child(1),
+		&:nth-child(3) {
+
+		}
+
+		&:nth-child(3),
+		&:nth-child(3) {
+			margin-top: 0;
+		}
 	}
 }
 .slideNumber {
