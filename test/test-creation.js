@@ -1,38 +1,41 @@
 /*global describe, beforeEach, it*/
 'use strict';
 
-var path    = require('path');
-var helpers = require('yeoman-generator').test;
+var path    = require('path'),
+    helpers = require('yeoman-generator').test,
+    rimraf = require('rimraf');
 
 
 describe('dxslide generator', function () {
+    var TEMP_DIR = path.join(__dirname, 'temp');
+
+
     beforeEach(function (done) {
-        helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
+        helpers.testDirectory(TEMP_DIR, function (err) {
             if (err) {
                 return done(err);
             }
-
-            this.app = helpers.createGenerator('dxslide:app', [
-                '../../app'
-            ]);
             done();
-        }.bind(this));
+        });
     });
 
-    it('creates expected files', function (done) {
-        var expected = [
-            // add files you expect to exist here.
-            '.jshintrc',
-            '.editorconfig'
-        ];
-
-        helpers.mockPrompt(this.app, {
-            'someOption': true
+    afterEach(function(done) {
+        rimraf(TEMP_DIR, function () {
+            done();
         });
-        this.app.options['skip-install'] = true;
-        this.app.run({}, function () {
+    });
+
+    it('should create slide file', function (done) {
+        var expected = [
+            '_html/partials/slides/qweqwe.hbs'
+        ],
+        gen = helpers.createGenerator('dxslide:app', ['../../app'],
+                ['qweqwe']);
+
+        gen.run({}, function () {
             helpers.assertFiles(expected);
             done();
         });
     });
+
 });

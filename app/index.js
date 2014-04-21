@@ -5,46 +5,27 @@ var yeoman = require('yeoman-generator');
 
 
 var DxslideGenerator = module.exports = function DxslideGenerator(args, options, config) {
-  yeoman.generators.Base.apply(this, arguments);
-
-  this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
-  });
-
-  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+  yeoman.generators.NamedBase.apply(this, arguments);
 };
 
-util.inherits(DxslideGenerator, yeoman.generators.Base);
+util.inherits(DxslideGenerator, yeoman.generators.NamedBase);
 
-DxslideGenerator.prototype.askFor = function askFor() {
-  var cb = this.async();
+DxslideGenerator.prototype.createSlide = function createSlide() {
+    var fileName = '_html/partials/slides/' + this.name + '.hbs';
 
-  // have Yeoman greet the user.
-  console.log(this.yeoman);
-
-  var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: true
-  }];
-
-  this.prompt(prompts, function (props) {
-    this.someOption = props.someOption;
-
-    cb();
-  }.bind(this));
+    this.log.info('creating slide ' + this.args[0]);
+    this.template('_slide.hbs', fileName);
 };
 
-DxslideGenerator.prototype.app = function app() {
-  this.mkdir('app');
-  this.mkdir('app/templates');
 
-  this.copy('_package.json', 'package.json');
-  this.copy('_bower.json', 'bower.json');
+DxslideGenerator.prototype.registerSlide = function registerSlide() {
+    var slideIndex = '_html/partials/slides.hbs',
+        slides = this.readFileAsString(slideIndex);
+
+    slides = slides + '\n{{> ' + this.name + ' }}';
+
+    this.writeFileFromString(slides, slideIndex);
+
+    this.log.info('slide registered');
 };
 
-DxslideGenerator.prototype.projectfiles = function projectfiles() {
-  this.copy('editorconfig', '.editorconfig');
-  this.copy('jshintrc', '.jshintrc');
-};
