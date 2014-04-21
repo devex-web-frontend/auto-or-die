@@ -1,14 +1,54 @@
-<section class="slide slide-justify">
+<section class="slide">
 	<h3>Циклы</h3>
-	<pre><code class="scss">.control {
-  display: inline-block;
+	<div style="float: left; width: 50%;">
+	<pre style="font-size: 0.27em;"><code class="scss">.columns {
+  &--column {
+    float: left;
 
-  input {
-    for $type in (text password email number) {
-      &[type={$type}] {
-        box-sizing: border-box;
+    &-1_2 {
+      width: 50%;
+    }
+    &-1_3 {
+      width: (100% / 3);
+    }
+    &-2_3 {
+      width: (100% / 3) * 2;
+    }
+    &-1_4 {
+      width: 25%;
+    }
+    &-2_4 {
+      @extend .columns--column-1_2;
+    }
+    &-3_4 {
+      width: 75%;
+    }
+    &-1_5 {
+      width: 20%;
+    }
+    &-2_5 {
+      width: 40%;
+    }
+    &-3_5 {
+      width: 60%;
+    }
+    &-4_5 {
+      width: 80%;
+    }
+  }
+}</code></pre>
+	</div>
+	<div style="float: left; width: 50%;" class="fragment">
+<pre><code class="scss">.columns {
+  &--column {
+    for $colsTotal in (2 3 4 5 6 8 10 12 20) {
+      for $col in (1...$colsTotal) {
+        &-{$col}_{$colsTotal} {
+          width: $col * (100% / $colsTotal);
+        }
       }
     }
   }
 }</code></pre>
+	</div>
 </section>
