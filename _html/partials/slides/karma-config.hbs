@@ -1,3 +1,17 @@
-<section class="slide slide-karma-config">
+<section class="slide center slide-karma-config">
+	<h4>karma.conf.js</h4>
+	<br/>
+	<pre><code class="javascript">module.exports = function(config) {
+  config.set({
+    basePath: '',
+    frameworks: ['jasmine'],
 
+    files: [
+      'src/dx.*.js',
+      'test/dx.*.unit.spec.js'
+    ],
+
+    browsers: ['PhantomJS', 'Chrome'],
+  });
+};</code></pre>
 </section>
