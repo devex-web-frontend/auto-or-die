@@ -1,3 +1,20 @@
 <section class="slide slide-karma-e2e-example">
+	<h4>Тестируем scrollbar</h4>
+	<br/>
+	<pre><code class="jabascript">it('should scroll when bar dragged', function() {
+  mouseDown('.scrollbar-vertical .scrollbar--bar', {
+    clientY: 20,
+    bubbles: true
+  });
+  mouseMove('body', {
+    clientY: 76,
+    bubbles: true
+  });
+  mouseUp('body', {
+    clientY: 1000,
+    bubbles: true
+  });
 
+  expect(element('.foo').scrollTop()).toBe(100);
+});</code></pre>
 </section>
