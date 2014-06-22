@@ -1,0 +1,11 @@
+{
+  "name": "revealjs",
+  "_cacheHeaders": {
+    "Content-Length": "303805",
+    "Content-Type": "application/x-gzip",
+    "Content-Disposition": "attachment; filename=reveal.js-2.6.1.tar.gz"
+  },
+  "_source": "https://github.com/hakimel/reveal.js/archive/2.6.1.tar.gz",
+  "_target": "*",
+  "_originalSource": "https://github.com/hakimel/reveal.js/archive/2.6.1.tar.gz"
+}

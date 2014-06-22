@@ -1,0 +1,42 @@
+/*
+ * Functions to write shadows in PSD-style
+ * Based on https://gist.github.com/1039282
+ */
+
+/* TODO check if it works correct */
+
+/*
+ * Usage:
+ * box-shadow: ps-drop-shadow(15deg, 11px, 0, 10px, #000);
+ * box-shadow: ps-drop-shadow(90deg, 0px, 0px, 5px, rgba(#000, 0.64), true);
+*/
+ps-drop-shadow($angle = 0, $distance = 0, $spread = 0, $size = 0, $color = #000, $inner = false) {
+	$angle = (180 - $angle) * (PI / 180);
+	$offsetX = round(cos($angle) * $distance);
+	$offsetY = round(sin($angle) * $distance);
+	$spreadRadius = $size * $spread / 100;
+	$blurRadius = ($size - $spreadRadius);
+	$inset = $inner ? 'inset' : '';
+
+	unquote($inset) unit($offsetX, px) unit($offsetY, px) unit($blurRadius, px) unit($spreadRadius, px) $color
+}
+
+/*
+ * Usage:
+ * box-shadow: ps-inner-shadow(15deg, 11px, 0, 10px, #000);
+*/
+ps-inner-shadow($angle = 0, $distance = 0, $spread = 0, $size = 0, $color = #000) {
+	drop-shadow($angle, $distance, $spread, $size, $color, true);
+}
+
+/*
+ * Usage:
+ * text-shadow: ps-text-shadow(15deg, 11px, 0, 10px, #000);
+*/
+ps-text-shadow($angle = 0, $distance = 0, $spread = 0, $size = 0, $color = #000) {
+	$angle = (180 - $angle) * (PI / 180);
+	$offsetX = round(cos($angle) * $distance);
+	$offsetY = round(sin($angle) * $distance);
+	$spreadRadius = $size * $spread / 100;
+	$blurRadius = ($size - $cssSpread);
+}

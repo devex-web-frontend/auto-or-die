@@ -1,0 +1,9 @@
+{{#if optgroups}}
+	{{#each optgroups}}
+		<optgroup label="{{label}}">
+			{{> _select_options}}
+		</optgroup>
+	{{/each}}
+{{else}}
+	{{> _select_options}}
+{{/if}}

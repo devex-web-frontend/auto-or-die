@@ -1,0 +1,13 @@
+{{defineRandomId this}}
+
+<div class="control control-colorPicker {{modifiers this 'control'}}  {{#unless label}} control-noLabel {{/unless}}
+		{{#if disabled}} control-disabled {{/if}}">
+	{{#nolinebreaks}}
+		{{> control--label}}
+		<span class="control--wrap">
+			<input data-colorPicker type="text" value="{{val}}"
+					{{#if disabled}} disabled {{/if}} id="{{randomId}}" class="{{className}}">
+			{{> control--postfix}}
+		</span>
+	{{/nolinebreaks}}
+</div>

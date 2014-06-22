@@ -1,0 +1,83 @@
+-is-center($arg) {
+	$arg == center
+}
+
+-is-unit($arg) {
+	$arg is a 'unit'
+}
+
+-is-center-or-unit($arg) {
+	-is-center($arg) || -is-unit($arg)
+}
+
+-is-horizontal($arg) {
+	$arg in (left right)
+}
+
+-is-vertical($arg) {
+	$arg in (top bottom)
+}
+
+/*
+ * Usage:
+ * background-image: url(x.png);
+ * background-image: linear-gradient(#fff, #000);
+ * background-image: url(x.png) center;
+ * background-image: url(x.png) 10px repeat-y;
+ * background-image: url(x.png) top left no-repeat;
+ */
+background-image() {
+	$argsLength = length(arguments);
+
+	if ($argsLength == 1) {
+		background-image: arguments;
+	} else {
+		if (type(arguments[1]) == 'call') {
+			background-image: arguments;
+		} else {
+			$posX = null;
+			$posY = null;
+			$repeat = null;
+
+			for $num in (1...$argsLength) {
+				$arg = arguments[$num];
+
+				if ($arg in (repeat no-repeat repeat-x repeat-y)) {
+					$repeat = $arg;
+				}
+				if (-is-horizontal($arg)) {
+					$posX = $arg;
+				}
+				if (-is-vertical($arg)) {
+					$posY = $arg;
+				}
+				if (-is-center($arg)) {
+					if ((arguments[$num + 1] && -is-horizontal(arguments[$num + 1])) || $posX) {
+						$posY = $arg;
+					} else {
+						$posX = $arg;
+					  }
+				}
+				if (-is-unit($arg)) {
+					if ($posX) {
+						$posY = $arg;
+					} else {
+						$posX = $arg;
+					}
+				}
+			}
+
+			if ($posX && !$posY && -is-center-or-unit($posX)) {
+				$posY = $posX;
+			}
+
+			background-image: arguments[0];
+			if ($posX && $posY) {
+				background-position: $posX $posY;
+			}
+			if ($repeat) {
+				background-repeat: $repeat;
+			}
+		}
+	}
+}

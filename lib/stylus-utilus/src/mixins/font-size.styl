@@ -1,0 +1,12 @@
+/*
+ * Usage:
+ * font-size: 10px;
+ * font-size: 10px/1.5;
+*/
+font-size() {
+	font-size: arguments[0];
+
+	if (arguments[1] == '/') {
+		line-height: arguments[2];
+	}
+}

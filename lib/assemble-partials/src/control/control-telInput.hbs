@@ -1,0 +1,13 @@
+{{defineRandomId this}}
+
+<div class="control control-telInput {{modifiers this 'control'}} {{#unless label}} control-noLabel {{/unless}}
+		{{#if disabled}} control-disabled {{/if}}">
+	{{#nolinebreaks}}
+		{{> control--label}}
+		<span class="control--wrap">
+			<input type="tel" value="{{val}}" placeholder="{{placeholder}}"
+					{{#if disabled}} disabled {{/if}} id="{{randomId}}" class="{{className}}">
+			{{> control--postfix}}
+		</span>
+	{{/nolinebreaks}}
+</div>

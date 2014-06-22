@@ -1,0 +1,71 @@
+$rootFontSize ?= 10px;
+$bodyFontSize ?= 1.2em;
+$bodyFontFamily ?= Arial, Helvetica, sans-serif;
+
+html,
+body {
+	height: 100%;
+}
+html {
+	font-size: $rootFontSize;
+}
+body {
+	font: $bodyFontSize $bodyFontFamily;
+}
+h1, h2, h3, h4, h5, h6,
+strong, b {
+	font-weight: bold;
+}
+em, i {
+	font-style: italic;
+}
+input,
+textarea,
+select,
+button,
+.button {
+	box-sizing: border-box;
+	margin: 0;
+	font-size: 1em;
+	line-height: 1;
+	font-family: inherit;
+
+	&:focus {
+		outline: none;
+	}
+}
+label,
+input,
+select,
+button,
+.button {
+	display: inline-block;
+	vertical-align: middle;
+}
+button,
+.button {
+	cursor: pointer;
+
+	&:disabled,
+	&[disabled] {
+		cursor: not-allowed;
+	}
+}
+input[type="submit"],
+input[type="reset"],
+button {
+	&::-moz-focus-inner {
+		padding: 0;
+		border: 0;
+	}
+}
+input {
+	&::-ms-clear {
+		display: none;
+	}
+}
+a,
+.link-pseudo {
+	text-decoration: underline;
+	cursor: pointer;
+}

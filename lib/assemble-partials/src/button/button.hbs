@@ -1,0 +1,12 @@
+{{#nolinebreaks}}
+	<{{default tag 'button'}} class="button {{modifiers this 'button'}} {{className}}"
+			{{#is tag 'a'}} href="{{href}}" {{/is}} {{#if disabled}} disabled {{/if}}
+			{{#if attributes}}
+				{{#each attributes}}
+					{{@key}}="{{this}}"
+				{{/each}}
+			{{/if}}
+			 type="{{default type 'button'}}" id="{{id}}">
+		<span>{{{text}}}</span>
+	</{{default tag 'button'}}>
+{{/nolinebreaks}}

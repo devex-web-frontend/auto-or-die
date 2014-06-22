@@ -1,0 +1,35 @@
+.reveal {
+	.contacts {
+		$logoWidth = 14%;
+
+		margin-top: 3em;
+		text-align: center;
+		clearfix();
+
+		&--speaker,
+		&--logo {
+			float: left;
+		}
+
+		&--logo {
+			width: $logoWidth;
+
+			img {
+				margin-top: .5em;
+			}
+		}
+
+		&--speaker {
+			width: ((100% - $logoWidth) / 2);
+			text-align: left;
+
+			&:first-child {
+				text-align: right;
+			}
+
+			a {
+				font-size: .85em;
+			}
+		}
+	}
+}

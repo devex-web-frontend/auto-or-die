@@ -1,0 +1,8 @@
+{{#unless noFooter}}
+	<footer class="popup--footer">
+		{{> popup--buttons}}
+		{{#if footer}}
+			{{inc footer this}}
+		{{/if}}
+	</footer>
+{{/unless}}

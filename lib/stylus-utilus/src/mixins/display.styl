@@ -1,0 +1,18 @@
+/*
+ * Usage:
+ * display: block;
+ * display: inline;
+ * display: inline-block;
+ * display: fixed-table;
+*/
+display($displayProp) {
+	if ($displayProp == inline-block) {
+		display: $displayProp;
+		vertical-align: middle;
+	} else if ($displayProp == fixed-table) {
+		display: table;
+		table-layout: fixed;
+	} else {
+		display: $displayProp;
+	}
+}

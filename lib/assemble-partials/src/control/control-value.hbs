@@ -1,0 +1,10 @@
+<div class="control control-value {{modifiers this 'control'}} {{#unless label}} control-noLabel {{/unless}}
+		{{#if disabled}} control-disabled {{/if}}">
+	{{#nolinebreaks}}
+		{{> control--label}}
+		<span class="control--wrap">
+			<span class="value {{className}}">{{{val}}}</span>
+			{{> control--postfix}}
+		</span>
+	{{/nolinebreaks}}
+</div>
