@@ -1,4 +1,20 @@
-<section class="slide center">
-    <h4 style="text-transform: lowercase;">$ yo dx someBlock</h4>
-    <img src="inc/img/yo/gen-start.jpg" alt=""/>
+<section class="slide center" data-background-color="#dbd5bb">
+	<video src="inc/video/yo-demo.mov" width="990"></video>
 </section>
+<script>
+	Reveal.addEventListener('slidechanged', function(e) {
+		var player = e.currentSlide.querySelector('[src="inc/video/yo-demo.mov"]'),
+			timeout;
+
+		if (player) {
+			player.pause();
+			player.currentTime = 0;
+			window.clearTimeout(timeout);
+
+			timeout = window.setTimeout(function() {
+				player.play();
+			}, 4000)
+		}
+
+	});
+</script>
