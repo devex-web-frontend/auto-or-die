@@ -29,11 +29,15 @@
 		]
 	});
 
-	Reveal.addEventListener('slidechanged', function( event ) {
+	function updateSlideNumber() {
 		var slNumber = document.querySelector('.slideNumber');
 
 		slNumber.style.display = (event.indexh > 1) ? 'block' : 'none';
 		slNumber.textContent = event.indexh - 1;
-	} );
+	}
+
+	Reveal.addEventListener('ready', updateSlideNumber);
+
+	Reveal.addEventListener('slidechanged', updateSlideNumber);
 
 </script>
