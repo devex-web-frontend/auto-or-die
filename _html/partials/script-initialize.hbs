@@ -32,8 +32,8 @@
 	Reveal.addEventListener('slidechanged', function( event ) {
 		var slNumber = document.querySelector('.slideNumber');
 
-		slNumber.style.display = (event.indexh) ? 'block' : 'none';
-		slNumber.textContent = event.indexh;
+		slNumber.style.display = (event.indexh > 1) ? 'block' : 'none';
+		slNumber.textContent = event.indexh - 1;
 	} );
 
 </script>
