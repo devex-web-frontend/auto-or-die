@@ -1,7 +1,7 @@
-<section class="slide">
-	<h3>Циклы</h3>
-	<div style="float: left; width: 50%;">
-	<pre style="font-size: 0.27em;"><code class="scss">.columns {
+<section class="slide slide-cols center">
+	<h3>Колонки без циклов</h3>
+	<div class="col">
+		<pre><code class="scss">.columns {
   &--column {
     float: left;
 
@@ -34,21 +34,76 @@
     }
     &-4_5 {
       width: 80%;
-    }
-  }
-}</code></pre>
+    }</code></pre>
 	</div>
-	<div style="float: left; width: 50%;" class="fragment">
-<pre><code class="scss">.columns {
-  &--column {
-    for $colsTotal in (2 3 4 5 6 8 10 12 20) {
-      for $col in (1...$colsTotal) {
-        &-{$col}_{$colsTotal} {
-          width: $col * (100% / $colsTotal);
-        }
-      }
+	<div class="col">
+		<pre><code class="scss">    &-1_6 {
+      width: (100% / 6);
+    }
+    &-2_6 {
+      @extend .columns--column-1_3;
+    }
+    &-3_6 {
+      @extend .columns--column-1_2;
+    }
+    &-4_6 {
+      @extend .columns--column-2_3;
+    }
+    &-5_6 {
+      width: (100% / 6) * 5;
+    }
+    &-1_8 {
+      width: (100% / 8);
+    }
+    &-2_8 {
+      @extend .columns--column-1_4;
+    }
+    &-3_8 {
+      width: (100% / 8) * 3;
+    }
+    &-4_8 {
+      @extend .columns--column-1_2;
+    }
+    &-5_8 {
+      width: (100% / 8) * 5;
+    }
+    &-6_8 {
+      @extend .columns--column-3_4;
+    }</code></pre>
+	</div>
+	<div class="col">
+		<pre><code class="scss">    &-7_8 {
+      width: (100% / 8) * 7;
+    }
+    &-1_10 {
+      width: (100% / 10);
+    }
+    &-2_10 {
+      @extend .columns--column-1_5;
+    }
+    &-3_10 {
+      width: (100% / 10) * 3;
+    }
+    &-4_10 {
+      @extend .columns--column-2_5;
+    }
+    &-5_10 {
+      @extend .columns--column-1_2;
+    }
+    &-6_10 {
+      @extend .columns--column-3_5;
+    }
+    &-7_10 {
+      width: (100% / 10) * 7;
+    }
+    &-8_10 {
+      @extend .columns--column-4_5;
+    }
+    &-9_10 {
+      width: (100% / 10) * 9;
     }
   }
-}</code></pre>
+}
+  </code></pre>
 	</div>
 </section>
