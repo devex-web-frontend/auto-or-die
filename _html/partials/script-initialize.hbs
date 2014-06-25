@@ -40,4 +40,18 @@
 
 	Reveal.addEventListener('slidechanged', updateSlideNumber);
 
+
+	function playVideo(player, delay) {
+		var timeout;
+
+		if (player) {
+			player.pause();
+			player.currentTime = 0;
+			window.clearTimeout(timeout);
+
+			timeout = window.setTimeout(function() {
+				player.play();
+			}, delay)
+		}
+	}
 </script>

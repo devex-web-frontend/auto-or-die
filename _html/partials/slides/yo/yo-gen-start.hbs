@@ -3,18 +3,6 @@
 </section>
 <script>
 	Reveal.addEventListener('slidechanged', function(e) {
-		var player = e.currentSlide.querySelector('[src="inc/video/yo-demo.mov"]'),
-			timeout;
-
-		if (player) {
-			player.pause();
-			player.currentTime = 0;
-			window.clearTimeout(timeout);
-
-			timeout = window.setTimeout(function() {
-				player.play();
-			}, 4000)
-		}
-
+		playVideo(e.currentSlide.querySelector('[src="inc/video/yo-demo.mov"]'), 4000);
 	});
 </script>
