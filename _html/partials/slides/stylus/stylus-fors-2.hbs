@@ -1,17 +1,13 @@
-<section class="slide slide-justify">
-	<h3>Колонки без циклов</h3>
-	<pre><code class="scss">.columns {
+<section class="slide center">
+	<h3>Циклы</h3>
+	<pre style="margin-top: 1.5em;"><code class="scss">.columns {
   &--column {
-    float: left;
-
-    &-1_2 {
-      width: 50%;
-    }
-    &-1_3 {
-      width: (100% / 3);
-    }
-    &-2_3 {
-      width: (100% / 3) * 2;
+    for $colsTotal in (2 3 4 5 6 8 10) {
+      for $col in (1...$colsTotal) {
+        &-{$col}_{$colsTotal} {
+          width: $col * (100% / $colsTotal);
+        }
+      }
     }
   }
 }</code></pre>
