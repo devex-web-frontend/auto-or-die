@@ -87,6 +87,14 @@
 <section class="slide slide-titled slide-justify center" data-background-color="#000">
 	<h2 style="font-size: 3em;"><span class="skull">☠</span> HTML <span class="skull">☠</span></h2>
 </section>
+<section class="slide center" data-background="#000">
+	<video src="inc/video/dxtrade5.webm" width="1024"></video>
+</section>
+<script>
+	Reveal.addEventListener('slidechanged', function(e) {
+		playVideo(e.currentSlide.querySelector('[src="inc/video/dxtrade5.webm"]'), 1500);
+	});
+</script>
 <section class="slide center">
 	<h3>Статические прототипы</h3>
 	<ul>
@@ -95,16 +103,33 @@
 		<li>не нужен сервер</li>
 	</ul>
 </section>
-
-<section class="slide" data-background="inc/img/assemble/how-assemble-works.png" data-background-size="100%" data-background-repeat="no-repeat" data-background-position="center">
+<section class="slide center">
+	<h3>Проблемы статического HTML</h3>
+	<ul>
+		<li>сложно найти место, где править</li>
+		<li>надо поддерживать много файлов</li>
+		<li>сложно править таблицы и списки</li>
+	</ul>
 </section>
+<section class="slide" data-background="inc/img/assemble/logo.png" data-background-size="contain" data-background-repeat="no-repeat" data-background-position="center">
 
+</section>
+<section class="slide center" data-background="inc/img/assemble/a-lot.gif" data-background-size="100%" data-background-repeat="no-repeat" data-background-position="center">
+	<h2 style="letter-spacing: .2em;">4000 LOC</h2>
+</section>
 <section class="slide" data-background="inc/img/assemble/lego.jpg" data-background-size="100%" data-background-repeat="no-repeat" data-background-position="center">
 </section>
+<section class="slide center">
+	<img style="box-shadow: 0 0 10px #808080;" src="inc/img/assemble/toslc-good.jpg">
+	<img class="fragment" style="margin-top: 1em; box-shadow: 0 0 10px #808080" src="inc/img/assemble/toslc-bad.jpg">
+</section>
+<section class="slide" data-background="inc/img/assemble/how-assemble-works.png" data-background-size="100%" data-background-repeat="no-repeat" data-background-position="center">
+</section>
+<section class="slide center" data-background="inc/img/assemble/same-but-different.png" data-background-size="100%" data-background-repeat="no-repeat" data-background-position="center">
 
+</section>
 <section class="slide" data-background="inc/img/assemble/assemble-partials-data.png" data-background-size="100%" data-background-repeat="no-repeat" data-background-position="center">
 </section>
-
 <section class="slide center">
 	<h3>Бонусы Assemble</h3>
 	<ul>
@@ -129,9 +154,18 @@
 		<li class="fragment">свой вариант</li>
 	</ul>
 </section>
-<section class="slide" data-background="inc/img/stylus/dry.jpg" data-background-size="100%" data-background-repeat="no-repeat" data-background-position="center">
+<section class="slide" data-background="inc/img/stylus/dry.jpg" data-background-size="cover" data-background-repeat="no-repeat" data-background-position="center">
 </section>
-<section class="slide" data-background="inc/img/stylus/how-works.png" data-background-size="115%" data-background-repeat="no-repeat" data-background-position="center">
+<section class="slide center">
+	<div class="logos">
+		<img src="inc/img/stylus/sass-logo.png">
+		<img src="inc/img/stylus/less-logo.png">
+		<img src="inc/img/stylus/stylus-logo.png">
+	</div>
+	<div class="logos fragment" style="margin-top: 2em; padding-top: 2em; border-top: double 9px #808080;">
+		<img src="inc/img/stylus/postcss-logo.png">
+		<img src="inc/img/stylus/rework-logo.png">
+	</div>
 </section>
 <section class="slide" data-background="inc/img/stylus/plugins.png" data-background-size="115%" data-background-repeat="no-repeat" data-background-position="center">
 </section>
@@ -146,10 +180,10 @@
 </section>
 <section class="slide" data-background="inc/img/stylus/yummy.jpg" data-background-size="100%" data-background-repeat="no-repeat" data-background-position="center">
 </section>
-<section class="slide">
-	<h3>Циклы</h3>
-	<div style="float: left; width: 50%;">
-	<pre style="font-size: 0.27em;"><code class="scss">.columns {
+<section class="slide slide-cols center">
+	<h3>Колонки без циклов</h3>
+	<div class="col">
+		<pre><code class="scss">.columns {
   &--column {
     float: left;
 
@@ -182,14 +216,86 @@
     }
     &-4_5 {
       width: 80%;
+    }</code></pre>
+	</div>
+	<div class="col">
+		<pre><code class="scss">
+    &-1_6 {
+      width: (100% / 6);
+    }
+    &-2_6 {
+      @extend .columns--column-1_3;
+    }
+    &-3_6 {
+      @extend .columns--column-1_2;
+    }
+    &-4_6 {
+      @extend .columns--column-2_3;
+    }
+    &-5_6 {
+      width: (100% / 6) * 5;
+    }
+    &-1_8 {
+      width: (100% / 8);
+    }
+    &-2_8 {
+      @extend .columns--column-1_4;
+    }
+    &-3_8 {
+      width: (100% / 8) * 3;
+    }
+    &-4_8 {
+      @extend .columns--column-1_2;
+    }
+    &-5_8 {
+      width: (100% / 8) * 5;
+    }
+    &-6_8 {
+      @extend .columns--column-3_4;
+    }</code></pre>
+	</div>
+	<div class="col">
+		<pre><code class="scss">
+    &-7_8 {
+      width: (100% / 8) * 7;
+    }
+    &-1_10 {
+      width: (100% / 10);
+    }
+    &-2_10 {
+      @extend .columns--column-1_5;
+    }
+    &-3_10 {
+      width: (100% / 10) * 3;
+    }
+    &-4_10 {
+      @extend .columns--column-2_5;
+    }
+    &-5_10 {
+      @extend .columns--column-1_2;
+    }
+    &-6_10 {
+      @extend .columns--column-3_5;
+    }
+    &-7_10 {
+      width: (100% / 10) * 7;
+    }
+    &-8_10 {
+      @extend .columns--column-4_5;
+    }
+    &-9_10 {
+      width: (100% / 10) * 9;
     }
   }
+
 }</code></pre>
 	</div>
-	<div style="float: left; width: 50%;" class="fragment">
-<pre><code class="scss">.columns {
+</section>
+<section class="slide center">
+	<h3>Циклы</h3>
+	<pre style="margin-top: 1.5em;"><code class="scss">.columns {
   &--column {
-    for $colsTotal in (2 3 4 5 6 8 10 12 20) {
+    for $colsTotal in (2 3 4 5 6 8 10) {
       for $col in (1...$colsTotal) {
         &-{$col}_{$colsTotal} {
           width: $col * (100% / $colsTotal);
@@ -198,11 +304,10 @@
     }
   }
 }</code></pre>
-	</div>
 </section>
-<section class="slide slide-justify">
+<section class="slide center">
 	<h3>Параметризация</h3>
-	<pre><code>$columnsAvailable ?= (2 3 4 5 6 8 10 12 20);
+	<pre style="margin-top: 1.5em;"><code class="scss">$columnsAvailable ?= (2 3 4 5 6 8 10 12 20);
 $columnsGap ?= 20px;
 
 .columns {
@@ -219,6 +324,14 @@ $columnsGap ?= 20px;
   }
 }</code></pre>
 </section>
+<section class="slide center" data-background="#000">
+	<video src="inc/video/cool-dashboard.webm" width="1024" loop></video>
+</section>
+<script>
+	Reveal.addEventListener('slidechanged', function(e) {
+		playVideo(e.currentSlide.querySelector('[src="inc/video/cool-dashboard.webm"]'), 500);
+	});
+</script>
 <section class="slide" data-background="inc/img/stylus/graph.png" data-background-repeat="no-repeat" data-background-position="center">
 </section>
 
@@ -273,23 +386,11 @@ $columnsGap ?= 20px;
 	<h3 class="white" style="margin-top: 100%; position: relative; top: -450px">Скаффолдеров</h3>
 </section>
 <section class="slide center" data-background-color="#dbd5bb">
-	<video src="inc/video/yo-demo.mov" width="990"></video>
+	<video src="inc/video/yo-demo.mov" width="1024"></video>
 </section>
 <script>
 	Reveal.addEventListener('slidechanged', function(e) {
-		var player = e.currentSlide.querySelector('[src="inc/video/yo-demo.mov"]'),
-			timeout;
-
-		if (player) {
-			player.pause();
-			player.currentTime = 0;
-			window.clearTimeout(timeout);
-
-			timeout = window.setTimeout(function() {
-				player.play();
-			}, 4000)
-		}
-
+		playVideo(e.currentSlide.querySelector('[src="inc/video/yo-demo.mov"]'), 4000);
 	});
 </script>
 <section class="slide center">
@@ -300,20 +401,19 @@ $columnsGap ?= 20px;
 <section class="slide slide-titled center" data-background-color="#000">
 	<h2 class="header-bower"><span class="skull">☠</span> Управление зависимостями <span class="skull">☠</span></h2>
 </section>
-<section class="slide center">
-    <h4>Подключаем jQuery</h4>
-    <br/>
-    <img class="fragment" src="inc/img/bower/jquery.jpg" alt=""/>
+<section class="slide">
+    <h3>Подключаем jQuery</h3>
+    
+    <img class="fragment" style="margin-top: 5em;" src="inc/img/bower/jquery.jpg" alt=""/>
 </section>
 <section class="slide">
-    <h4>Подключаем Marionette</h4>
-
-    <div style="position: relative;">
-        <img src="inc/img/bower/marionette-1.jpg" style="visibility: hidden" alt=""/>
-        <img src="inc/img/bower/marionette-1.jpg" class="absHCenter" alt=""/>
-        <img src="inc/img/bower/marionette-2.jpg" class="absHCenter fragment" alt=""/>
-        <img src="inc/img/bower/marionette-3.jpg" class="absHCenter fragment" alt=""/>
-        <img src="inc/img/bower/marionette-4.jpg" class="absHCenter fragment" alt=""/>
+    <h3 style="font-size: 1.3em;">Подключаем Marionette</h3>
+	<br/>
+    <div class="fullsize" style="height: 499px;">
+        <img src="inc/img/bower/marionette-1.jpg" width="1024" class="fullsize--img" alt=""/>
+        <img src="inc/img/bower/marionette-2.jpg" width="1024" class="fullsize--img fragment" alt=""/>
+        <img src="inc/img/bower/marionette-3.jpg" width="1024" class="fullsize--img fragment" alt=""/>
+        <img src="inc/img/bower/marionette-4.jpg" width="1024" class="fullsize--img fragment" alt=""/>
     </div>
 </section>
 <section class="slide center">
@@ -321,34 +421,40 @@ $columnsGap ?= 20px;
 	<img src="inc/img/bower/bower.png" alt=""/>
 </section>
 <section class="slide center">
-    <h4>Добавление зависимостей</h4>
-    <br/>
+    <h3 style="font-size: 1.3em;">Добавление зависимостей</h3>
     bower.json
-	<pre><code class="javascript">{
+	<pre><code class="javascript" style="font-size: 1.2em; line-height: 1.3em;">{
     "name": "project",
     "dependencies": {
-        "selectbox": "#1.1.0",
-        "combobox": "#1.0.1",
-        "scrollable": "#2.0.8"
+        "selectbox": "1.1.0",
+        "combobox": "1.0.1",
+        "scrollable": "2.0.8"
     }
 }</code></pre>
-    <br/>
     CLI
     	<pre><code class="bash" style="font-size: 1.4em;">
 $ bower install jquery --save
 	    </code></pre>
 </section>
 <section class="slide">
-	<img src="inc/img/bower/depresolving.jpg" alt=""/>
+	<div class="fullsize">
+		<img src="inc/img/bower/depresolving.jpg" class="fullsize--img" alt=""/>
+	</div>
 </section>
-<section class="slide" data-background="inc/img/bower/reuse.jpg" data-background-size="50%" data-background-repeat="no-repeat" data-background-position="center">
-    <h3>Что переиспользовать?</h3>
-    <h3 style="visibility: hidden;">Что тестировать?</h3>
-            <div class="ways">            <div class="way">                <h4>Dev-зависимости</h4>                <br/>                <ul>                    <li>styl файлы</li>                    <li>кусочки верстки</li>                    <li>хелперы</li>                    <li>демо данные</li>                </ul>            </div><div class="way">            <h4>Prod-зависимости</h4>                <div style="color: #999;">(внешние и внутренние)</div>                <ul>                    <li>библиотеки</li>                    <li>контролы</li>                    <li>виджеты</li>                </ul>            </div>        </div>    
+<section class="slide center">
+    <h3 style="font-size: 1.3em;">Что переиспользовать?</h3>
+	<br/>
+	<img src="inc/img/bower/reuse.jpg" height="500" alt=""/>
+</section>
+<section class="slide center">
+    <h3>Зависимости</h3>
+	<br/>
+            <div class="ways">            <div class="way"><h4>dev</h4>                <ul>                    <li>styl файлы</li>                    <li>верстка</li>                    <li>хелперы</li>                    <li>демо данные</li>                </ul>            </div><div class="way"><h4>prod</h4>                <ul>                    <li>библиотеки</li>                    <li>контролы</li>                    <li>виджеты</li>                </ul>            </div>        </div>    
 </section>
 <section class="slide">
-	<h3>Источники зависимостей</h3>
-	<ul>
+	<h3 style="font-size: 1.3em;">Источники зависимостей</h3>
+
+	<ul style="font-size: 1.3em; margin-top: .3em;">
 		<li>bower-registry</li>
 		<li>git-репозиторий</li>
 		<li>прямая ссылка на файл</li>
@@ -361,28 +467,32 @@ $ bower install jquery --save
 </section>
 
 <section class="slide slide-titled center" data-background-color="#000">
-	<h2><span class="skull">☠</span> Тестирование <span class="skull">☠</span></h2>
+	<h2 class="header-karma"><span class="skull">☠</span> Тестирование <span class="skull">☠</span></h2>
 </section>
-
-<section class="slide" data-background="inc/img/bower/reuse.jpg" data-background-size="50%" data-background-repeat="no-repeat" data-background-position="center">
-    <h3 id="whatToReuse"><del>Что переиспользовать?</del></h3>
-    <h3 id="whatToTest">Что тестировать?</h3>
-        <div class="ways">        <div class="way">            <h4>Dev-зависимости</h4>            <br/>            <ul>                <li>styl файлы</li>                <li>кусочки верстки</li>                <li>хелперы</li>            </ul>        </div><div class="way">            <h4>Prod-зависимости</h4>            <div style="color: #999;">(внешние и внутренние)</div>            <ul>                <li>библиотеки</li>                <li>контролы</li>                <li>виджеты</li>            </ul>        </div>    </div>    
+<section class="slide center">
+    <h3>Что тестировать?</h3>
+	<br/>
+	<img src="inc/img/bower/reuse.jpg" class="fragment" height="500" alt=""/>
+</section>
+<section class="slide center">
+	<h3>Зависимости</h3>
+	<br/>
+	<div class="ways"><div class="way"><h4>dev</h4><ul><li>styl файлы</li><li>верстка</li><li>хелперы</li></ul></div><div class="way"><h4>prod</h4><ul><li>библиотеки</li><li>контролы</li><li>виджеты</li></ul></div></div>
 </section>
 <section class="slide">
     <img src="inc/img/karma/equals.png" alt=""/>
 </section>
 <section class="slide center">
-    <h4>Unit-тесты в браузере</h4>
+    <h3>Unit-тесты в браузере</h3>
     <br/>
     <ul>
 		<li class="fragment">создать spec файл</li>
         <li class="fragment">подключить тесты/фреймворки</li>
-		<li class="fragment">открываем все целевые браузеры</li>
-		<li class="withoutBullet fragment">
-            <img src="inc/img/karma/f5.gif" alt=""/>
-        </li>
+		<li class="fragment">открыть все целевые браузеры</li>
 	</ul>
+</section>
+<section class="slide" data-background="inc/img/karma/drilling-F5.gif" data-background-color="black" data-background-size="80%" data-background-repeat="no-repeat" data-background-position="top">
+
 </section>
 <section class="slide center">
     <h2>Такой TDD нам не нужен</h2>
@@ -391,9 +501,9 @@ $ bower install jquery --save
 	<img src="inc/img/karma/karma.png" style="height: 150px;" alt=""/>
 </section>
 <section class="slide center slide-karma-config">
-	<h4>karma.conf.js</h4>
+	<h3>karma.conf.js</h3>
 	<br/>
-	<pre><code class="javascript">module.exports = function(config) {
+	<pre><code style="font-size: 1.2em; line-height: 1.3em;" class="javascript">module.exports = function(config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine'],
@@ -407,26 +517,26 @@ $ bower install jquery --save
   });
 };</code></pre>
 </section>
-<section class="slide">
-    <h3>Karma</h3>
-    <br/>
+<section class="slide center">
+	<h3>Karma-runner</h3>
+	<br/>
     <ul>
-	    <li class="fragment">запуск браузеров</li>
+	    <li>запуск браузеров</li>
         <li  class="fragment">любой тестовый фреймворк</li>
-        <li  class="fragment">препроцессинг любой сложности</li>
-        <li  class="fragment">file watchers</li>
-        <li  class="fragment">скорость</li>
+		<li  class="fragment">file watchers</li>
+		<li  class="fragment">препроцессинг любой сложности</li>
+        <li  class="fragment">быстрая обратная связь</li>
     </ul>
 </section>
 <section class="slide center">
     <h3>Пользовательские события
-        <br/><span class="fragment">это тоже API</span></h3>
+        <span class="fragment">—<br><br> <span style="text-decoration: underline;">это тоже API</span></span></h3>
 </section>
-<section class="slide slide-karma-shwartz">
-	<img src="inc/img/karma/gun.jpg" alt=""/>
+<section class="slide" data-background="inc/img/karma/gun.jpg" data-background-repeat="no-repeat" data-background-size="cover">
+
 </section>
 <section class="slide center">
-    <h4>ng-scenario</h4>
+    <h3>ng-scenario</h3>
     <br/>
     <ul class="fragment">
         <li>легко настроить</li>
@@ -435,8 +545,11 @@ $ bower install jquery --save
         <li>расширяемое API</li>
     </ul>
 </section>
+<section class="slide center">
+	<h3>Пишем кастомный скроллбар</h3>
+</section>
 <section class="slide slide-karma-e2e-example">
-	<h4>Тестируем scrollbar</h4>
+	<h3>Тестируем скроллбар</h3>
 	<br/>
 	<pre><code class="jabascript">it('should scroll when bar dragged', function() {
   mouseDown('.scrollbar-vertical .scrollbar--bar', {
@@ -460,19 +573,22 @@ $ bower install jquery --save
 </section>
 
 <section class="slide slide-titled center" data-background-color="#000">
-	<h2><span class="skull">☠</span> Инструменты <span class="skull">☠</span></h2>
+	<h2 style="font-size: 2.5em;"><span class="skull">☠</span><br>Инструменты<br><span class="skull">☠</span></h2>
 </section>
-<section class="slide" data-background-size="100%" data-background="inc/img/npm-grunt/terminals.png" data-background-repeat="no-repeat" data-background-position="center">
+<section class="slide" data-background-size="cover" data-background="inc/img/npm-grunt/terminals.png" data-background-repeat="no-repeat" data-background-position="center">
 </section>
-<section class="slide" data-background="inc/img/npm-grunt/scheme.png" data-background-size="100%" data-background-position="center" data-background-repeat="no-repeat">
+<section class="slide" data-background-size="contain" data-background="inc/img/npm-grunt/scheme.png" data-background-position="center" data-background-repeat="no-repeat">
 </section>
-<section class="slide" data-background="inc/img/npm-grunt/scheme-taskrunner.png" data-background-size="100%" data-background-position="center" data-background-repeat="no-repeat">
+<section class="slide" data-background-size="contain" data-background="inc/img/npm-grunt/scheme-taskrunner.png" data-background-position="center" data-background-repeat="no-repeat">
 </section>
-<section class="slide" data-background="inc/img/npm-grunt/scheme-gulp.png" data-background-size="100%" data-background-position="center" data-background-repeat="no-repeat">
+<section class="slide">
+	<h3>Таск-раннер</h3>
+	<div class="logos">
+		<img src="inc/img/npm-grunt/grunt-logo.png">
+		<img class="fragment" src="inc/img/npm-grunt/gulp-logo.png">
+	</div>
 </section>
-<section class="slide" data-background="inc/img/npm-grunt/scheme-grunt.png" data-background-size="100%" data-background-position="center" data-background-repeat="no-repeat">
-</section>
-<section class="slide" data-background-size="100%" data-background="inc/img/npm-grunt/terminal.png" data-background-position="center" data-background-repeat="no-repeat">
+<section class="slide" data-background-size="cover" data-background="inc/img/npm-grunt/terminal.png" data-background-position="center" data-background-repeat="no-repeat">
 </section>
 <section class="slide center">
   <h3>Это ещё не всё!</h3>
@@ -486,25 +602,26 @@ $ bower install jquery --save
 	</ul>
 </section>
 
+<section class="slide center">
+	<h3>npm scripts</h3>
+	<pre style="font-size: 1.4em; margin-top: 1em;"><code>$ npm install
+$ npm test
+$ npm run build
+$ npm run release</code></pre>
+</section>
+
 <section class="slide" data-background="inc/img/npm-grunt/nodejs.png" data-background-repeat="no-repeat" data-background-position="center">
 
 </section>
-<section class="slide">
-	<h3>package.json/scripts</h3>
-	<ul>
-		<li><code>install</code></li>
-		<li><code>test</code></li>
-		<li><code>build</code></li>
-		<li><code>release</code></li>
-	</ul>
 
-	<pre style="font-size: 1.4em;"><code>&gt; npm install
-&gt; npm run build</code></pre>
+<section class="slide" data-background="inc/img/iron-man.jpg" data-background-position="center" data-background-repeat="no-repeat" data-background-size="100%">
+
 </section>
-
-
-<section class="slide" data-background="inc/img/landscape.jpg" data-background-position="center" data-background-repeat="no-repeat" data-background-size="100%">
-
+<section class="slide center">
+	<div class="logos">
+		<img src="inc/img/goodguyboss.jpg">
+		<img class="fragment" src="inc/img/goodguygreg.jpg">
+	</div>
 </section>
 <section class="slide" data-background="inc/img/rip.jpg" data-background-position="center" data-background-repeat="no-repeat" data-background-size="100%">
 </section>
@@ -545,16 +662,17 @@ $ bower install jquery --save
 <section class="slide">
 	<h3>Ссылки <small>(2)</small></h3>
 	<ul>
+		<li><a href="https://github.com/ai/postcss">github.com/ai/postcss</a></li>
 		<li><a href="http://bower.io/">bower.io</a></li>
 		<li><a href="https://github.com/bower/bower">github.com/bower/bower</a></li>
 		<li><a href="http://yeoman.io/">yeoman.io</a></li>
 		<li><a href="https://github.com/yeoman/yo">github.com/yeoman/yo</a></li>
+		<li><a href="http://karma-runner.github.io/">karma-runner.github.io</a></li>
 	</ul>
 </section>
 <section class="slide">
 	<h3>Ссылки <small>(3)</small></h3>
 	<ul>
-		<li><a href="http://karma-runner.github.io/">karma-runner.github.io</a></li>
 		<li><a href="https://github.com/karma-runner/karma">github.com/karma-runner/karma</a></li>
 		<li><a href="http://maksimr.github.io/p-karma/">maksimr.github.io/p-karma</a></li>
 		<li><a href="http://gruntjs.com/">gruntjs.com</a></li>
@@ -610,6 +728,20 @@ $ bower install jquery --save
 
 	Reveal.addEventListener('slidechanged', updateSlideNumber);
 
+
+	function playVideo(player, delay) {
+		var timeout;
+
+		if (player) {
+			player.pause();
+			player.currentTime = 0;
+			window.clearTimeout(timeout);
+
+			timeout = window.setTimeout(function() {
+				player.play();
+			}, delay)
+		}
+	}
 </script>
 </body>
 </html>
