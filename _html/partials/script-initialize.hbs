@@ -32,26 +32,36 @@
 	function updateSlideNumber() {
 		var slNumber = document.querySelector('.slideNumber');
 
-		slNumber.style.display = (event.indexh > 1) ? 'block' : 'none';
-		slNumber.textContent = event.indexh - 1;
+		slNumber.style.display = (event.indexh > 0) ? 'block' : 'none';
+		slNumber.textContent = event.indexh;
 	}
 
 	Reveal.addEventListener('ready', updateSlideNumber);
 
 	Reveal.addEventListener('slidechanged', updateSlideNumber);
 
+	Reveal.addEventListener('slidechanged', function(e) {
+		var player = e.currentSlide.querySelector('video'),
+				prevPlayer = e.previousSlide.querySelector('video'),
+				delay = player.getAttribute('data-delay') || 0,
+				timeout;
 
-	function playVideo(player, delay) {
-		var timeout;
-
-		if (player) {
+		function stop(player) {
 			player.pause();
 			player.currentTime = 0;
 			window.clearTimeout(timeout);
+		}
+
+		if (player) {
+			stop(player);
 
 			timeout = window.setTimeout(function() {
 				player.play();
 			}, delay)
 		}
-	}
+
+		if (prevPlayer) {
+			stop(prevPlayer);
+		}
+	});
 </script>
